@@ -169,3 +169,11 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/mido/BoardConfigVendor.mk
+
+# Headless server pieces (headless_su sepolicy), see vendor/headless
+include vendor/headless/BoardConfigHeadless.mk
+
+# As on the Galaxy S8+ build (universal8895-common): SELinux is permissive
+# anyway (kernel), and neverallow checks would only block the permissive sud
+# domain's rules.
+SELINUX_IGNORE_NEVERALLOWS := true

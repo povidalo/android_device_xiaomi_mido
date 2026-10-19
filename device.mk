@@ -456,3 +456,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_SYSTEM)/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+# Headless server: ADB on from first boot, password-gated root (headless_su),
+# root boot scripts, stay awake, bundled Termux with SSH. Shared with the
+# Galaxy S8+ build (dream2lte), see vendor/headless.
+$(call inherit-product, vendor/headless/headless.mk)
