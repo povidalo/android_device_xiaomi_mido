@@ -461,3 +461,8 @@ PRODUCT_COPY_FILES += \
 # root boot scripts, stay awake, bundled Termux with SSH. Shared with the
 # Galaxy S8+ build (dream2lte), see vendor/headless.
 $(call inherit-product, vendor/headless/headless.mk)
+
+# Headless server, mido only: the CPU at full power (all cores online,
+# 'performance' governor, no CPU low-power modes), see headless/.
+PRODUCT_PACKAGES += \
+    headless_boot_03-cpu-full-power
