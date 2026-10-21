@@ -128,9 +128,12 @@ debug.sf.earlyGl.app.duration=16600000
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
-ro.surface_flinger.enable_layer_caching=true
+# Headless server: no layer caching (its flattener keeps three 8 MB
+# full-screen buffers) and double instead of triple framebuffers, 32 MB less
+# graphics memory. Both only smooth the UI, and the screen is mostly off.
+ro.surface_flinger.enable_layer_caching=false
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
-ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.max_frame_buffer_acquired_buffers=2
 ro.surface_flinger.max_virtual_display_dimension=4096
 
 # System
